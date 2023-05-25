@@ -40,3 +40,8 @@ def test_eth_sendUserOperation_invalid_signature(invalid_sig_userop):
         "Invalid UserOp signature or paymaster signature",
         RPCErrorCode.INVALID_SIGNATURE,
     )
+
+def test_eth_sendUserOperation_expires_shortly(expire_shortly_userop):
+    assert_rpc_error(
+        expire_shortly_userop.send(), "expires too soon", RPCErrorCode.SHORT_DEADLINE
+    )
