@@ -21,7 +21,6 @@ BUNDLER2 = "http://localhost:3001/rpc"
 # BUNDLER2 = "http://bundler2:3000/rpc"
 
 # Sanity test: make sure a simple userop is propagated
-@pytest.mark.skip(reason="P2P not yet implemented")
 def test_simple_p2p(w3, entrypoint_contract, manual_bundling_mode):
     wallet = deploy_and_deposit(w3, entrypoint_contract, "SimpleWallet", False)
     op = UserOperation(sender=wallet.address)
